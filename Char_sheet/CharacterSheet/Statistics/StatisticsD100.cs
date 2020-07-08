@@ -1,12 +1,9 @@
-﻿using System.Security.Policy;
-
-namespace CharactertSheet
+﻿namespace CharacterSheet
 {
 	public class StatisticD100 : Statistics
 	{
 		private string label;
 		private int[] stats;
-		private int filelds;
 		public string Label
 		{
 			get => label;
@@ -18,7 +15,6 @@ namespace CharactertSheet
 		}
 		public StatisticD100(int fields)
 		{
-			this.filelds = fields;
 			stats = new int[fields];
 		}
 
