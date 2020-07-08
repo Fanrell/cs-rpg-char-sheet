@@ -1,4 +1,4 @@
-﻿namespace CharacterSheet
+﻿namespace CS
 {
 	public interface Statistics
 	{

@@ -1,5 +1,5 @@
 ﻿using System;
-using CharacterSheet;
+using CS;
 
 namespace Char_sheet
 {
@@ -7,7 +7,7 @@ namespace Char_sheet
     {
         static void Main(string[] args)
         {
-            CharacterSheet.CharacterSheet tmp = new CharacterSheet.CharacterSheet();
+            CharacterSheet tmp = new CharacterSheet();
             tmp.ShowCharSheet();
         }
     }

@@ -1,7 +1,7 @@
-﻿using CharacterSheet;
+﻿using CS;
 using System;
 
-namespace CharacterSheet
+namespace CS
 {
     class CharacterSheet
     {
