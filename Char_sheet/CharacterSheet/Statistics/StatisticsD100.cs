@@ -9,7 +9,6 @@
 			get => label;
 			set
 			{
-				if (value.Length >= 3)
 					label = value;
 			}
 		}

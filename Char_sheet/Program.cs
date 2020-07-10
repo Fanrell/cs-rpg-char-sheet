@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using CS;
 
 namespace Char_sheet
@@ -7,8 +8,16 @@ namespace Char_sheet
     {
         static void Main(string[] args)
         {
-            CharacterSheet tmp = new CharacterSheet();
-            tmp.ShowCharSheet();
+            CharacterSheet tmpCharSheet = new CharacterSheet();
+            Fil t = new Fil();
+            t.Filler(tmpCharSheet);
+            Console.WriteLine("You filled corretly first stats");
+            t.Filler(tmpCharSheet);
+            tmpCharSheet.ShowCharSheet();
         }
+
+        
     }
 }
+
+

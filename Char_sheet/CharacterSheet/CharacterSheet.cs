@@ -1,52 +1,46 @@
-﻿using CS;
-using System;
+﻿using System;
+using System.Diagnostics;
 
 namespace CS
 {
     class CharacterSheet
     {
         private Statistics[] stats;
-        private int fields;
+        private Statistics[] secoundStats;
         public CharacterSheet()
         {
-            Console.WriteLine("Give Amount of Stats ");
-            int sA = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Give Amount of Stat's fileds");
-            int f = Convert.ToInt32(Console.ReadLine());
-            StatsBuild(sA, f);
-            for (int i = 0; i<stats.Length; i++)
-            {
-                StatisticD100 tmp = new StatisticD100(fields);
-                int[] tStat = new int[fields];
-                for (int j = 0; j<tStat.Length;j++)
-                {
-                    Console.WriteLine("Give label of stats field for {0} stat", i + 1);
-                    tmp.NewLabel(Console.ReadLine());
-
-                    Console.WriteLine("Give value of {0} field for {1} stat", j + 1, i + 1);
-                    try
-                    {
-                        tStat[j] = Convert.ToInt32(Console.ReadLine());
-                    }
-                    catch(Exception e)
-                    {
-                        Console.WriteLine(e);
-                    }
-                }
-                tmp.NewStat(tStat);
-                stats[i] = tmp;
-            }
         }
 
-        private void StatsBuild(int statsAmount,int fields)
+        public bool StatsBuild(Statistics[] stats, string flag)
         {
-            this.fields = fields;
-            stats = new Statistics[statsAmount];
+            bool confirm = false;
+            switch(flag.ToLower())
+            {
+                case ("p"):
+                    this.stats = stats;
+                    confirm = true;
+                    if (stats.Length == 0)
+                        confirm = false;
+                    break;
+                case ("s"):
+                    this.secoundStats = stats;
+                    confirm = true;
+                    if (stats.Length == 0)
+                        confirm = false;
+                    break;
+                default:
+                    Debug.Write("Unimplement flag");
+                    break;
+            }
+            return confirm;
         }
         public void ShowCharSheet()
         {
-            string tekst = "";
+            string tekst = "Primary Statistics: \n";
             foreach (var x in stats)
+                tekst += x.ShowStat() + "\n";
+            tekst += "=======\nSecondary statistics: \n";
+            foreach (var x in secoundStats)
                 tekst += x.ShowStat() + "\n";
             Console.WriteLine(tekst);
         }
