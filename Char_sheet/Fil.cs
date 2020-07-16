@@ -24,6 +24,7 @@ namespace Char_sheet
                 catch(FormatException e)
                 {
                     error = true;
+                    Debug.Write(e);
                     Console.Clear();
                 }
             } while (error);
