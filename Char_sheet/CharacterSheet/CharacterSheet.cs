@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Diagnostics;
+using CS.Stats;
 
 namespace CS
 {
     class CharacterSheet
     {
-        private Statistics[] stats;
-        private Statistics[] secoundStats;
+        private IStatistics[] stats;
+        private IStatistics[] secoundStats;
         public CharacterSheet()
         {
         }
 
-        public bool StatsBuild(Statistics[] stats, string flag)
+        public bool StatsBuild(IStatistics[] stats, string flag)
         {
             bool confirm = false;
             switch(flag.ToLower())

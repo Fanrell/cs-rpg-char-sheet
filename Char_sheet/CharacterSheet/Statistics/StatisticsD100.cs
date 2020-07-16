@@ -1,6 +1,6 @@
-﻿namespace CS
+﻿namespace CS.Stats
 {
-	public class StatisticD100 : Statistics
+	public class StatisticD100 : IStatistics
 	{
 		private string label;
 		private int[] stats;

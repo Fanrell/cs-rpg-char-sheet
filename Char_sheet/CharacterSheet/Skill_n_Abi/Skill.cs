@@ -1,10 +1,29 @@
 ﻿namespace CS.Skill_n_Abi
 {
-    interface Skill
+    class Skill : ISkill
     {
-        public bool BuildSkill(string label, string disc);
-        public bool BuildSkill(string label, string disc, int lvl);
-        public string ShowInfo();
-        public string ShowSheetInfo();
+        private string label;
+        private string discription = null;
+        private int? level = null;
+
+        public bool BuildSkill(string label, string disc)
+        {
+            return true;
+        }
+
+        public bool BuildSkill(string label, string disc, int lvl)
+        {
+            return true;
+        }
+
+        public string PrintDiscription()
+        {
+            return " ";
+        }
+
+        public string PrintSheetAblitiy()
+        {
+            return " ";
+        }
     }
 }

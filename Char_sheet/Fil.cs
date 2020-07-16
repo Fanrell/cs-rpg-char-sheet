@@ -10,7 +10,7 @@ namespace Char_sheet
         {
             int amountStats = 0;
             int statsFields = 0;
-            Statistics[] stats;
+            IStatistics[] stats;
             bool error = false;
             do
             {
@@ -28,7 +28,7 @@ namespace Char_sheet
                     Console.Clear();
                 }
             } while (error);
-            stats = new Statistics[amountStats];
+            stats = new IStatistics[amountStats];
             
             for (int i = 0; i < stats.Length; i++)
             {
