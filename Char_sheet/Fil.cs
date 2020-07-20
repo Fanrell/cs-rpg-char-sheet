@@ -1,70 +1,64 @@
 ﻿using CS;
+using CS.Stats;
 using System;
+using System.Data.SqlTypes;
 using System.Diagnostics;
+using System.Reflection.Metadata;
+
 namespace Char_sheet
 {
     class Fil
     {
 
-        private bool FillCharacterSheet(CharacterSheet chrSheet, string flag)
+        public bool FillCharacterSheet(CharacterSheet chrSheet, string flag)
         {
-            int amountStats = 0;
             int statsFields = 0;
-            IStatistics[] stats;
+            int[] stat;
+            string statsLabel = "";
+            Statistic stats;
             bool error = false;
             do
             {
                 try
                 {
-                    Console.WriteLine("Give Amount of Stats ");
-                    amountStats = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Give Amount of Stat's fileds");
                     statsFields = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Pleas give label for stat");
+                    statsLabel = Console.ReadLine();
                 }
                 catch(FormatException e)
                 {
                     error = true;
-                    Debug.Write(e);
-                    Console.Clear();
+                    Debug.Write("In your values exist {0}", e.ToString());
+                    Console.WriteLine("Pleas give correct data // value");
                 }
             } while (error);
-            stats = new IStatistics[amountStats];
-            
-            for (int i = 0; i < stats.Length; i++)
+            stats = new Statistic(statsFields);
+            stats.NewLabel(statsLabel);
+            stat = new int[statsFields];
+            for (int i = 0; i < statsFields; i++)
             {
-                StatisticD100 tmpStat = new StatisticD100(statsFields);
-                int[] statsValues = new int[statsFields];
-                Console.WriteLine("{0} Stats no. {1} label: ", flag, i + 1);
-                tmpStat.Label = Console.ReadLine();
-                for (int j = 0; j < statsFields; j++)
+                
+                bool exceExsist = false;
+                do
                 {
-
+                    Console.WriteLine("Please give value for {0} field of statistic", i + 1);
                     try
                     {
-                        Console.WriteLine("{0} Stats no. {1}, {2} value:  ", flag, i + 1, j + 1);
-                        statsValues[j] = Convert.ToInt32(Console.ReadLine());
+                        stat[i] = Convert.ToInt32(Console.ReadLine());
+                        Debug.Print("Value: {0}", stat[i]);
                     }
-                    catch (Exception e)
+                    catch (FormatException e)
                     {
-                        Debug.Write(e);
-                        break;
+                        exceExsist = true;
+                        Debug.Write("In your values exist {0}", e.ToString());
+                        Console.WriteLine("Pleas give correct data // value");
                     }
-                }
-                tmpStat.NewStat(statsValues);
-                stats[i] = tmpStat;
-
+                } while (exceExsist);
+                
             }
+            stats.NewStat(stat);
             return !chrSheet.StatsBuild(stats, flag);
-        }
-
-        public void Filler(CharacterSheet chSheet)
-        {
-            string t;
-            do
-            {
-                Console.WriteLine("Pleas give flag to choose [P]rimary or [S]econdary stats");
-                t = Console.ReadLine().Substring(0, 1);
-            } while (FillCharacterSheet(chSheet, t));
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace CS.Stats
 {
-	public class StatisticD100 : IStatistics
+	public class Statistic : IStatistics
 	{
 		private string label;
 		private int[] stats;
@@ -12,7 +12,7 @@
 					label = value;
 			}
 		}
-		public StatisticD100(int fields)
+		public Statistic(int fields)
 		{
 			stats = new int[fields];
 		}
@@ -39,6 +39,23 @@
 			foreach (int x in stats)
 				tekst += " | " + x.ToString() + " | ";
 			return tekst;
+        }
+
+		public static IStatistics[] ConCat(IStatistics[] a, IStatistics[] b)
+        {
+			IStatistics[] newStatistics = new IStatistics[a.Length + b.Length];
+			IStatistics[][] tmp = { a, b };
+
+			int i = 0;
+			foreach (IStatistics[] oldStatistics in tmp)
+			{
+				foreach (IStatistics oldStat in oldStatistics)
+				{
+					newStatistics[i] = oldStat;
+					i++;
+				}
+			}
+			return newStatistics;
         }
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using CS.Stats;
 
@@ -6,32 +7,29 @@ namespace CS
 {
     class CharacterSheet
     {
-        private IStatistics[] stats;
-        private IStatistics[] secoundStats;
-        public CharacterSheet()
-        {
-        }
+        private List<Statistic> stats = new List<Statistic>();
+        private List<Statistic> secoundStats = new List<Statistic>();
 
-        public bool StatsBuild(IStatistics[] stats, string flag)
+        public bool StatsBuild(Statistic stats, string flag)
         {
             bool confirm = false;
-            switch(flag.ToLower())
+            if(stats != null)
             {
-                case ("p"):
-                    this.stats = stats;
-                    confirm = true;
-                    if (stats.Length == 0)
+                confirm = true;
+                switch(flag.ToLower())
+                {
+                    case ("p"):
+                        this.stats.Add(stats);
+                        break;
+                    case ("s"):
+                        this.secoundStats.Add(stats);
+                        break;
+                    case ("e"):
+                        break;
+                    default:
                         confirm = false;
-                    break;
-                case ("s"):
-                    this.secoundStats = stats;
-                    confirm = true;
-                    if (stats.Length == 0)
-                        confirm = false;
-                    break;
-                default:
-                    Debug.Write("Unimplement flag");
-                    break;
+                        break;
+                }
             }
             return confirm;
         }

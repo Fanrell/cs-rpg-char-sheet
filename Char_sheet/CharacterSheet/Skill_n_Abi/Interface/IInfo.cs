@@ -1,5 +1,4 @@
-﻿
-namespace CS.Skill_n_Abi
+﻿namespace CS.Skill_n_Abi
 {
     interface IInfo
     {
