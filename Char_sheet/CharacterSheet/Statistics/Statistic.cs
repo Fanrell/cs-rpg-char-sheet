@@ -17,17 +17,17 @@
 			stats = new int[fields];
 		}
 
-		public bool NewLabel(string label)
+		public bool BuildLabel(string label)
         {
 			if (Label == null)
 			{
 				Label = label;
-				return Label == label;
+				
 			}
-			return false;
-        }
+			return Label == label;
+		}
 
-		public bool NewStat(int[] stats)
+		public bool BuildStat(int[] stats)
         {
 			this.stats = stats;
 			return true;

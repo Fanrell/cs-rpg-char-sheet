@@ -3,6 +3,6 @@
     interface IInfo
     {
         public string PrintDiscription();
-        public string PrintSheetAblitiy();
+        /*public string PrintSheetAblitiy();*/
     }
 }

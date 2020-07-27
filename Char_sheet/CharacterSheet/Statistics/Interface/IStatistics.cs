@@ -2,8 +2,8 @@
 {
 	public interface IStatistics
 	{
-		public bool NewLabel(string label);
-		public bool NewStat(int[] stats);
+		public bool BuildLabel(string label);
+		public bool BuildStat(int[] stats);
 		public string ShowStat();
 	}
 }

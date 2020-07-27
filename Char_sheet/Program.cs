@@ -12,7 +12,7 @@ namespace Char_sheet
             Fil t = new Fil();
             string flag = "";
             Console.WriteLine("Welcome to character sheet creation");
-            do 
+            do
             {
                 Console.WriteLine("[p]rimary stat fill \n" +
                     "[s]econdary stat fill \n" +
@@ -25,7 +25,6 @@ namespace Char_sheet
             tmpCharSheet.ShowCharSheet();
         }
 
-        
     }
 }
 

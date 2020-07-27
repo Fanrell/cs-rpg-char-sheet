@@ -34,7 +34,7 @@ namespace Char_sheet
                 }
             } while (error);
             stats = new Statistic(statsFields);
-            stats.NewLabel(statsLabel);
+            stats.BuildLabel(statsLabel);
             stat = new int[statsFields];
             for (int i = 0; i < statsFields; i++)
             {
@@ -57,7 +57,7 @@ namespace Char_sheet
                 } while (exceExsist);
                 
             }
-            stats.NewStat(stat);
+            stats.BuildStat(stat);
             return !chrSheet.StatsBuild(stats, flag);
         }
 
