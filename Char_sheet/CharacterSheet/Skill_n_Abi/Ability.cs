@@ -70,11 +70,12 @@ namespace CS.Skill_n_Abi
                 confirm &= BuildDiscription(disc);
                 confirm &= BuildPossess(possess);
                 if (!confirm)
-                    throw new System.ArgumentException("Once of paramiters is false");
+                    throw new System.ArgumentException("Once of parameters is false");
             }
             catch(Exception e)
             {
                 Debug.WriteLine(e);
+                confirm = false;
             }
             return confirm;
         }
