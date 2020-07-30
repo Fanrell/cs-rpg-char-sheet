@@ -30,7 +30,7 @@
 		public bool BuildStat(int[] stats)
         {
 			this.stats = stats;
-			return true;
+			return this.stats == stats;
         }
 
 		public string ShowStat()
@@ -41,21 +41,21 @@
 			return tekst;
         }
 
-		public static IStatistics[] ConCat(IStatistics[] a, IStatistics[] b)
-        {
-			IStatistics[] newStatistics = new IStatistics[a.Length + b.Length];
-			IStatistics[][] tmp = { a, b };
+		// public static IStatistics[] ConCat(IStatistics[] a, IStatistics[] b)
+        // {
+		// 	IStatistics[] newStatistics = new IStatistics[a.Length + b.Length];
+		// 	IStatistics[][] tmp = { a, b };
 
-			int i = 0;
-			foreach (IStatistics[] oldStatistics in tmp)
-			{
-				foreach (IStatistics oldStat in oldStatistics)
-				{
-					newStatistics[i] = oldStat;
-					i++;
-				}
-			}
-			return newStatistics;
-        }
+		// 	int i = 0;
+		// 	foreach (IStatistics[] oldStatistics in tmp)
+		// 	{
+		// 		foreach (IStatistics oldStat in oldStatistics)
+		// 		{
+		// 			newStatistics[i] = oldStat;
+		// 			i++;
+		// 		}
+		// 	}
+		// 	return newStatistics;
+        // }
 	}
 }
