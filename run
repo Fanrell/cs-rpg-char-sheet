@@ -1,2 +1,3 @@
 #!/bin/bash
+dotnet build Char_sheet
 ./Char_sheet/bin/Debug/netcoreapp3.1/Char_sheet

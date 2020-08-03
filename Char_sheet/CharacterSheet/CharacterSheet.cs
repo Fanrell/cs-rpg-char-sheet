@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CS.Stats;
+using CS.Skill_n_Abi;
 
 namespace CS
 {
@@ -8,6 +9,8 @@ namespace CS
     {
         private List<Statistic> stats = new List<Statistic>();
         private List<Statistic> secoundStats = new List<Statistic>();
+        private List<Skill> Skills = new List<Skill>();
+        private List<Ability> Abilitys = new List<Ability>();
 
         public bool StatsBuild(Statistic stats, string flag)
         {
@@ -32,6 +35,16 @@ namespace CS
             }
             return confirm;
         }
+
+        public void SkillBuild(Skill skill)
+        {
+            Skills.Add(skill);
+        }
+
+        public void AbilityBuild(Ability ability)
+        {
+            Abilitys.Add(ability);
+        }
         public void ShowCharSheet()
         {
             string tekst = "Primary Statistics: \n";
@@ -40,6 +53,9 @@ namespace CS
             tekst += "=======\nSecondary statistics: \n";
             foreach (var x in secoundStats)
                 tekst += x.ShowStat() + "\n";
+            tekst += "========\nSkills: \n";
+            foreach (var x in Skills)
+                tekst += x.PrintSheetSkill() + "\n";
             Console.WriteLine(tekst);
         }
     }

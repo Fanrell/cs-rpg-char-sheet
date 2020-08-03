@@ -1,16 +1,15 @@
 ﻿using CS;
 using CS.Stats;
+using CS.Skill_n_Abi;
 using System;
-using System.Data.SqlTypes;
 using System.Diagnostics;
-using System.Reflection.Metadata;
 
 namespace Char_sheet
 {
     class Fil
     {
 
-        public bool FillCharacterSheet(CharacterSheet chrSheet, string flag)
+        private bool FillStatsCharacterSheet(CharacterSheet chrSheet, string flag)
         {
             int statsFields = 0;
             int[] stat;
@@ -59,6 +58,51 @@ namespace Char_sheet
             }
             stats.BuildStat(stat);
             return !chrSheet.StatsBuild(stats, flag);
+        }
+
+        private bool FillSkill(CharacterSheet charSheet)
+        {
+            string label = "";
+            string disc = "";
+            int? level;
+            bool confirm = true;
+            Skill skill = new Skill();
+            try
+            {
+                Console.WriteLine("Please give skill Label");
+                label = Console.ReadLine();
+                Console.WriteLine("Please give skill Discription");
+                disc = Console.ReadLine();
+                Console.WriteLine("Please give skill Level (you can give empty)");
+                level = Convert.ToInt32(Console.ReadLine());
+                if(!skill.BuildSkill(label,disc,level))
+                    throw new System.ArgumentException("Once of parameters is false");
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e);
+                confirm = false;
+            }
+            
+            charSheet.SkillBuild(skill);
+            return confirm;
+        }
+
+        public void Filler(CharacterSheet charSheet, string flag)
+        {
+            switch(flag.ToLower())
+            {
+                case("p"):
+                    this.FillStatsCharacterSheet(charSheet, flag);
+                    break;
+                case("s"):
+                    this.FillStatsCharacterSheet(charSheet, flag);
+                    break;
+                case("k"):
+                    this.FillSkill(charSheet);
+                    break;
+                
+            }
         }
 
     }
