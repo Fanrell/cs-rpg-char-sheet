@@ -15,8 +15,8 @@ namespace Char_sheet
             {
                 Console.WriteLine("[p]rimary stat fill \n" +
                     "[s]econdary stat fill \n" +
-                    "[e]xit 'n' print character sheet\n"+
-                    "S[k]ill fill");
+                    "S[k]ill fill\n" +
+                    "[e]xit 'n' print character sheet");
                 flag = Console.ReadLine();
                 if (flag == "e")
                     break;

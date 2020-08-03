@@ -67,23 +67,29 @@ namespace Char_sheet
             int? level;
             bool confirm = true;
             Skill skill = new Skill();
-            try
+            do
             {
-                Console.WriteLine("Please give skill Label");
-                label = Console.ReadLine();
-                Console.WriteLine("Please give skill Discription");
-                disc = Console.ReadLine();
-                Console.WriteLine("Please give skill Level (you can give empty)");
-                level = Convert.ToInt32(Console.ReadLine());
-                if(!skill.BuildSkill(label,disc,level))
-                    throw new System.ArgumentException("Once of parameters is false");
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine(e);
-                confirm = false;
-            }
-            
+                
+                try
+                {
+                    Console.WriteLine("Please give skill Label");
+                    label = Console.ReadLine();
+                    Console.WriteLine("Please give skill Discription");
+                    disc = Console.ReadLine();
+                    Console.WriteLine("Please give skill Level (0-3)");
+                    level = Convert.ToInt16(Console.ReadLine());
+                    if (!skill.BuildSkill(label, disc, level))
+                        throw new ArgumentException("Once of parameters is false");
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    skill = new Skill();
+                    confirm = false;
+                }
+            } while (!confirm);
+
+
             charSheet.SkillBuild(skill);
             return confirm;
         }
