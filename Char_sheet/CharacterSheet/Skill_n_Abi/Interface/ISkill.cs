@@ -6,7 +6,7 @@
         public bool BuildDiscription(string disc);
         public bool BuildLevel(int? level);
         public bool BuildSkill(string label, string disc, int? level);
-        public string PrintDiscription();
+        public (string,string) PrintDiscription();
         public (string, int?) PrintSheetSkill();
     }
 }

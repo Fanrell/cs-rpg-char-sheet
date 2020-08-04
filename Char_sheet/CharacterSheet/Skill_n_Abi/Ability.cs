@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Diagnostics;
+using System.Reflection.Emit;
 using System.Security.Cryptography;
 
 namespace CS.Skill_n_Abi
@@ -55,11 +56,9 @@ namespace CS.Skill_n_Abi
         }
         public bool BuildPossess(bool possess)
         {
-            if(Possess == false)
-            {
-                Possess = true;
-            }
-            return possess;
+            if(Possess != possess)
+                Possess = possess;
+            return Possess = possess;
         }
         public bool BuildAbility(string label, string disc, bool possess)
         {
@@ -79,10 +78,9 @@ namespace CS.Skill_n_Abi
             }
             return confirm;
         }
-        public string PrintDiscription()
-        {
-            string disc = Label + ":\n" + Discription;
-            return disc;
+        public (string,string) PrintDiscription()
+        { 
+            return (Label, Discription);
         }
         public (string,bool) PrintSheetAblitiy()
         {

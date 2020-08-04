@@ -75,10 +75,9 @@ namespace CS.Skill_n_Abi
             }
             return confirm;
         }
-        public string PrintDiscription()
+        public (string,string) PrintDiscription()
         {
-            string disc = Label + ":\n" + Discription;
-            return disc;
+            return (Label, Discription);
         }
         public (string, int?) PrintSheetSkill()
         {

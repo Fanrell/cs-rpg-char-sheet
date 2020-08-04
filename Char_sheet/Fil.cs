@@ -65,11 +65,11 @@ namespace Char_sheet
             string label = "";
             string disc = "";
             int? level;
-            bool confirm = true;
+            bool confirm;
             Skill skill = new Skill();
             do
             {
-                
+                confirm = true;
                 try
                 {
                     Console.WriteLine("Please give skill Label");
@@ -84,13 +84,45 @@ namespace Char_sheet
                 catch (Exception e)
                 {
                     Debug.WriteLine(e);
-                    skill = new Skill();
                     confirm = false;
                 }
             } while (!confirm);
 
 
             charSheet.SkillBuild(skill);
+            return confirm;
+        }
+
+        private bool AbilityFill(CharacterSheet charSheet)
+        {
+            bool confirm;
+            string label = "";
+            string disc = "";
+            bool posses;
+            Ability ability = new Ability();
+            do
+            {
+                try
+                {
+                    confirm = true;
+                    Console.WriteLine("Please give Ability Label");
+                    label = Console.ReadLine();
+                    Console.WriteLine("Please give Ability Discription");
+                    disc = Console.ReadLine();
+                    Console.WriteLine("Do you know this ? (True or Fals)");
+                    posses = Convert.ToBoolean(Console.ReadLine());
+
+                    if (!ability.BuildAbility(label, disc, posses))
+                        throw new ArgumentException("Once of parameters is false");
+                }
+                catch(Exception e)
+                {
+                    Debug.WriteLine(e);
+                    confirm = false;
+                }
+
+            } while (!confirm);
+            charSheet.AbilityBuild(ability);
             return confirm;
         }
 
@@ -107,7 +139,10 @@ namespace Char_sheet
                 case("k"):
                     this.FillSkill(charSheet);
                     break;
-                
+                case ("a"):
+                    this.AbilityFill(charSheet);
+                    break;
+
             }
         }
 

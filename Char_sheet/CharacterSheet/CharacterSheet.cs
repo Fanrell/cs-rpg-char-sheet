@@ -48,14 +48,17 @@ namespace CS
         public void ShowCharSheet()
         {
             string tekst = "Primary Statistics: \n";
-            foreach (var x in stats)
+            foreach (Statistic x in stats)
                 tekst += x.ShowStat() + "\n";
             tekst += "=======\nSecondary statistics: \n";
-            foreach (var x in secoundStats)
+            foreach (Statistic x in secoundStats)
                 tekst += x.ShowStat() + "\n";
             tekst += "========\nSkills: \n";
-            foreach (var x in Skills)
+            foreach (Skill x in Skills)
                 tekst += x.PrintSheetSkill() + "\n";
+            tekst += "========\nAblity: \n";
+            foreach (Ability x in Abilitys)
+                tekst += x.PrintSheetAblitiy() + "\n";
             Console.WriteLine(tekst);
         }
     }

@@ -6,7 +6,7 @@
         public bool BuildDiscription(string disc);
         public bool BuildPossess(bool possess);
         public bool BuildAbility(string label, string disc, bool possess);
-        public string PrintDiscription();
+        public (string,string) PrintDiscription();
         public (string, bool) PrintSheetAblitiy();
     }
 }
