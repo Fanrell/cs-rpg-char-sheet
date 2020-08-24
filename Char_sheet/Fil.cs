@@ -11,6 +11,7 @@ namespace Char_sheet
 
         private bool FillStatsCharacterSheet(CharacterSheet chrSheet, string flag)
         {
+            // infinite loop przy jednej pomyłce
             int statsFields = 0;
             int[] stat;
             string statsLabel = "";
@@ -62,6 +63,7 @@ namespace Char_sheet
 
         private bool FillSkill(CharacterSheet charSheet)
         {
+            // infinite loop przy jednej pomyłce
             string label = "";
             string disc = "";
             int? level;
@@ -95,6 +97,7 @@ namespace Char_sheet
 
         private bool AbilityFill(CharacterSheet charSheet)
         {
+            // infinite loop przy podaniu FALSE
             bool confirm;
             string label = "";
             string disc = "";
@@ -109,7 +112,7 @@ namespace Char_sheet
                     label = Console.ReadLine();
                     Console.WriteLine("Please give Ability Discription");
                     disc = Console.ReadLine();
-                    Console.WriteLine("Do you know this ? (True or Fals)");
+                    Console.WriteLine("Do you know this ? (True or False)");
                     posses = Convert.ToBoolean(Console.ReadLine());
 
                     if (!ability.BuildAbility(label, disc, posses))
