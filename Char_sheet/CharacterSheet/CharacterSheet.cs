@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CS.Stats;
 using CS.Skill_n_Abi;
+using Char_sheet.CS.Tools;
 
 namespace CS
 {
@@ -13,8 +14,8 @@ namespace CS
 
         private List<Statistic> stats = new List<Statistic>();
         private List<Statistic> secoundStats = new List<Statistic>();
-        private List<Skill> Skills = new List<Skill>();
-        private List<Ability> Abilitys = new List<Ability>();
+        private List<Skill> skills = new List<Skill>();
+        private List<Ability> abilities = new List<Ability>();
         /// <summary>
         /// Method which forward stat to appropriate List depends on the flag
         /// </summary>
@@ -50,7 +51,7 @@ namespace CS
         /// <param name="skill">Filled object of <c>Skill</c></param>
         public void SkillBuild(Skill skill)
         {
-            Skills.Add(skill);
+            skills.Add(skill);
         }
         /// <summary>
         /// Method in <c>CharacterSheet</c>.  Add filled param to Ability List.
@@ -58,7 +59,7 @@ namespace CS
         /// <param name="skill">Filled object of <c>Ability</c></param>
         public void AbilityBuild(Ability ability)
         {
-            Abilitys.Add(ability);
+            abilities.Add(ability);
         }
         /// <summary>
         /// Method in <c>CharacterSheet</c>. Write all information from Character Sheet.
@@ -67,17 +68,13 @@ namespace CS
         public string ShowCharSheet()
         {
             string tekst = "Primary Statistics: \n";
-            foreach (Statistic x in stats)
-                tekst += x.ShowStat() + "\n";
+            tekst += Printer.Print(stats);
             tekst += "=======\nSecondary statistics: \n";
-            foreach (Statistic x in secoundStats)
-                tekst += x.ShowStat() + "\n";
+            tekst += Printer.Print(secoundStats);
             tekst += "========\nSkills: \n";
-            foreach (Skill x in Skills)
-                tekst += x.PrintSheetSkill() + "\n";
+            tekst += Printer.Print(skills);
             tekst += "========\nAblity: \n";
-            foreach (Ability x in Abilitys)
-                tekst += x.PrintSheetAblitiy() + "\n";
+            tekst += Printer.Print(abilities);
             return tekst;
         }
     }

@@ -11,16 +11,17 @@ namespace Char_sheet
 
         private bool FillStatsCharacterSheet(CharacterSheet chrSheet, string flag)
         {
-            // infinite loop przy jednej pomyłce
             int statsFields = 0;
             int[] stat;
             string statsLabel = "";
             Statistic stats;
-            bool error = false;
+            bool error;
             do
             {
+                
                 try
                 {
+                    error = false;
                     Console.WriteLine("Give Amount of Stat's fileds");
                     statsFields = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Pleas give label for stat");
@@ -71,9 +72,10 @@ namespace Char_sheet
             Skill skill = new Skill();
             do
             {
-                confirm = true;
+                
                 try
                 {
+                    confirm = true;
                     Console.WriteLine("Please give skill Label");
                     label = Console.ReadLine();
                     Console.WriteLine("Please give skill Discription");
@@ -121,6 +123,7 @@ namespace Char_sheet
                 catch(Exception e)
                 {
                     Debug.WriteLine(e);
+                    posses = new bool();
                     confirm = false;
                 }
 

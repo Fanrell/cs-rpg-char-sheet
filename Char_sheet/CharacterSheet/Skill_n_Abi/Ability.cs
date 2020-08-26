@@ -79,7 +79,7 @@ namespace CS.Skill_n_Abi
         {
             if(Possess != possess)
                 Possess = possess;
-            return Possess = possess;
+            return Possess == possess;
         }
         /// <summary>
         /// <c>BuildAbility</c> is method of Ability class. Check correction of parameters step by step.

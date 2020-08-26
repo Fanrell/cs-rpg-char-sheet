@@ -1,4 +1,6 @@
-﻿namespace CS.Stats
+﻿using System;
+
+namespace CS.Stats
 {
 	/// <summary>
 	/// Class <c>Statistic</c> is class preapird for contain information about statistic for character.
@@ -18,6 +20,11 @@
 					label = value;
 			}
 		}
+
+		public int[] Stats
+        {
+			get => stats;
+        }
 		/// <summary>
 		/// Constructor for Statistic class.
 		/// </summary>
@@ -49,17 +56,6 @@
         {
 			this.stats = stats;
 			return this.stats == stats;
-        }
-		/// <summary>
-		/// <c>ShowStats</c> is method in Statistic class. Prepari string with statistics to show in program.
-		/// </summary>
-		/// <returns>Edited string with all statistics </returns>
-		public string ShowStat()
-        {
-			string tekst = Label;
-			foreach (int x in stats)
-				tekst += " | " + x.ToString() + " | ";
-			return tekst;
         }
 
 	}

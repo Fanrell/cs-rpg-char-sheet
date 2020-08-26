@@ -4,6 +4,5 @@
 	{
 		public bool BuildLabel(string label);
 		public bool BuildStat(int[] stats);
-		public string ShowStat();
 	}
 }

@@ -23,7 +23,7 @@ namespace Char_sheet
                     break;
                 t.Filler(tmpCharSheet, flag);
             } while (true);
-            tmpCharSheet.ShowCharSheet();
+            Console.WriteLine(tmpCharSheet.ShowCharSheet());
         }
 
     }
