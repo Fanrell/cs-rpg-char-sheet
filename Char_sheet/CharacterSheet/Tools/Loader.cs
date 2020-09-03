@@ -1,5 +1,8 @@
 namespace CS.Tools
 {
+    /// <summary>
+    /// <c>Loader</c> Tools class prepaird to load data
+    /// </summary>
     public static class Loader
     {
         static bool LoadCharacterSheet(CharacterSheet character, string path)
