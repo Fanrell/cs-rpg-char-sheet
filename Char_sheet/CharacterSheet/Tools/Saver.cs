@@ -7,15 +7,19 @@ namespace CS.Tools
     /// <summary>
     /// <c>Saver</c> Tools class prepaird to save data
     /// </summary>
-    public static class Saver
+    static class Saver
     {
-        static bool SaveCharacetrSheet(CharacterSheet character, string path)
+        public static bool SaveCharacetrSheet(CharacterSheet character, string path)
         {
+            //serializacja moze zostac wykonana tylko dla pól publicznych. Można to objeść ?
             bool confirm = true;
+            string output = JsonConvert.SerializeObject(character);
+            Console.WriteLine(character.ShowCharSheet());
+            Console.WriteLine(output);
             return confirm;
         }
 
-        static bool SaveCharacetrSheetTemplate(CharacterSheet character, string path)
+        public static bool SaveCharacetrSheetTemplate(CharacterSheet character, string path)
         {
             bool confirm = true;
             return confirm;

@@ -12,10 +12,10 @@ namespace CS
     class CharacterSheet
     {
 
-        private List<Statistic> stats = new List<Statistic>();
-        private List<Statistic> secoundStats = new List<Statistic>();
-        private List<Skill> skills = new List<Skill>();
-        private List<Ability> abilities = new List<Ability>();
+        public List<Statistic> stats = new List<Statistic>();
+        public List<Statistic> secoundStats = new List<Statistic>();
+        public List<Skill> skills = new List<Skill>();
+        public List<Ability> abilities = new List<Ability>();
         /// <summary>
         /// Method which forward stat to appropriate List depends on the flag
         /// </summary>

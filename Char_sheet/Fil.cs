@@ -1,6 +1,7 @@
 ﻿using CS;
 using CS.Stats;
 using CS.Skill_n_Abi;
+using CS.Tools;
 using System;
 using System.Diagnostics;
 
@@ -151,6 +152,7 @@ namespace Char_sheet
                     break;
                 case("v"):
                     Console.WriteLine("save");
+                    Saver.SaveCharacetrSheet(charSheet,"./test.char");
                     break;
                 case("l"):
                     Console.WriteLine("load");
