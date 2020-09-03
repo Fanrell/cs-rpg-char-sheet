@@ -6,7 +6,7 @@ using System.Diagnostics.Contracts;
 using System.IO;
 using System.Reflection.Emit;
 
-namespace Char_sheet.CS.Tools
+namespace CS.Tools
 {
     static class Printer
     {

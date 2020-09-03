@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CS.Stats;
 using CS.Skill_n_Abi;
-using Char_sheet.CS.Tools;
+using CS.Tools;
 
 namespace CS
 {
