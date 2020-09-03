@@ -17,6 +17,8 @@ namespace Char_sheet
                     "[s]econdary stat fill \n" +
                     "S[k]ill fill\n" +
                     "[A]bility fill\n" +
+                    "Sa[v]e file\n" +
+                    "[L]oad file\n" +
                     "[e]xit 'n' print character sheet");
                 flag = Console.ReadLine();
                 if (flag == "e")

@@ -4,6 +4,7 @@ using CS.Skill_n_Abi;
 using System;
 using System.Diagnostics;
 
+
 namespace Char_sheet
 {
     class Fil
@@ -148,7 +149,12 @@ namespace Char_sheet
                 case ("a"):
                     this.AbilityFill(charSheet);
                     break;
-
+                case("v"):
+                    Console.WriteLine("save");
+                    break;
+                case("l"):
+                    Console.WriteLine("load");
+                    break;
             }
         }
 
