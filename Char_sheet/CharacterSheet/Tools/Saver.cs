@@ -9,7 +9,7 @@ namespace CS.Tools
     /// </summary>
     static class Saver
     {
-        public static bool SaveCharacetrSheet(CharacterSheet character, string path)
+        public static bool SaveCharacetrSheet(CharacterSheet character, string path, string fileName)
         {
             //serializacja moze zostac wykonana tylko dla pól publicznych. Można to objeść ?
             bool confirm = true;
