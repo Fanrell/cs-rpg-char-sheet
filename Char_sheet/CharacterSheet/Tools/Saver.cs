@@ -16,6 +16,7 @@ namespace CS.Tools
             string output = JsonConvert.SerializeObject(character);
             Console.WriteLine(character.ShowCharSheet());
             Console.WriteLine(output);
+            FileSaver.CharSheetToFile(".", "test.json", output);
             return confirm;
         }
 
