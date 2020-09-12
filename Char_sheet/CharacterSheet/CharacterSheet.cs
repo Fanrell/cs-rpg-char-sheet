@@ -12,10 +12,44 @@ namespace CS
     class CharacterSheet
     {
 
-        public List<Statistic> stats = new List<Statistic>();
-        public List<Statistic> secoundStats = new List<Statistic>();
-        public List<Skill> skills = new List<Skill>();
-        public List<Ability> abilities = new List<Ability>();
+        private List<Statistic> primaryStats = new List<Statistic>();
+        private List<Statistic> secoundStats = new List<Statistic>();
+        private List<Skill> skills = new List<Skill>();
+        private List<Ability> abilities = new List<Ability>();
+
+        public List<Statistic> PrimaryStats
+        {
+            get => primaryStats;
+            set
+            {
+                primaryStats = value;
+            }
+        }
+        public List<Statistic> SecoundStats
+        {
+            get => secoundStats;
+            set
+            {
+                secoundStats = value;
+            }
+        }
+        public List<Skill> Skills
+        {
+            get => skills;
+            set
+            {
+                skills = value;
+            }
+        }
+
+        public List<Ability> Abilities
+        {
+            get => abilities;
+            set
+            {
+                abilities = value;
+            }
+        }
         /// <summary>
         /// Method which forward stat to appropriate List depends on the flag
         /// </summary>
@@ -31,10 +65,10 @@ namespace CS
                 switch(flag.ToLower())
                 {
                     case ("p"):
-                        this.stats.Add(stats);
+                        this.PrimaryStats.Add(stats);
                         break;
                     case ("s"):
-                        this.secoundStats.Add(stats);
+                        this.SecoundStats.Add(stats);
                         break;
                     case ("e"):
                         break;
@@ -51,7 +85,7 @@ namespace CS
         /// <param name="skill">Filled object of <c>Skill</c></param>
         public void SkillBuild(Skill skill)
         {
-            skills.Add(skill);
+            Skills.Add(skill);
         }
         /// <summary>
         /// Method in <c>CharacterSheet</c>.  Add filled param to Ability List.
@@ -59,7 +93,7 @@ namespace CS
         /// <param name="skill">Filled object of <c>Ability</c></param>
         public void AbilityBuild(Ability ability)
         {
-            abilities.Add(ability);
+            Abilities.Add(ability);
         }
         /// <summary>
         /// Method in <c>CharacterSheet</c>. Write all information from Character Sheet.
@@ -68,13 +102,13 @@ namespace CS
         public string ShowCharSheet()
         {
             string tekst = "Primary Statistics: \n";
-            tekst += Printer.Print(stats);
+            tekst += Printer.Print(PrimaryStats);
             tekst += "=======\nSecondary statistics: \n";
-            tekst += Printer.Print(secoundStats);
+            tekst += Printer.Print(SecoundStats);
             tekst += "========\nSkills: \n";
-            tekst += Printer.Print(skills);
+            tekst += Printer.Print(Skills);
             tekst += "========\nAblity: \n";
-            tekst += Printer.Print(abilities);
+            tekst += Printer.Print(Abilities);
             return tekst;
         }
     }

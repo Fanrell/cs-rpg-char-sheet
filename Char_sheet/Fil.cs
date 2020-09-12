@@ -152,7 +152,7 @@ namespace Char_sheet
                     break;
                 case("v"):
                     Console.WriteLine("save");
-                    Saver.SaveCharacetrSheet(charSheet,"./test.char");
+                    Saver.SaveCharacetrSheet(charSheet,"./", "test.char");
                     break;
                 case("l"):
                     Console.WriteLine("load");

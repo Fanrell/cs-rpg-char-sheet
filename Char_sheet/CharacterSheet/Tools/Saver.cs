@@ -11,7 +11,7 @@ namespace CS.Tools
     {
         public static bool SaveCharacetrSheet(CharacterSheet character, string path, string fileName)
         {
-            //serializacja moze zostac wykonana tylko dla pól publicznych. Można to objeść ?
+            //
             bool confirm = true;
             string output = JsonConvert.SerializeObject(character);
             Console.WriteLine(character.ShowCharSheet());
