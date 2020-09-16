@@ -95,6 +95,12 @@ namespace CS
         {
             Abilities.Add(ability);
         }
+
+        public void Clear()
+        {
+            ClearStat.SetZeros(ref primaryStats);
+            ClearStat.SetZeros(ref secoundStats);
+        }
         /// <summary>
         /// Method in <c>CharacterSheet</c>. Write all information from Character Sheet.
         /// </summary>

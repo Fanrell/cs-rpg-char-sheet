@@ -25,6 +25,11 @@ namespace CS.Stats
         {
 			get => stats;
         }
+
+		public int Length
+		{
+			get => stats.Length;
+		}
 		/// <summary>
 		/// Constructor for Statistic class.
 		/// </summary>

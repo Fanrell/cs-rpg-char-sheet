@@ -11,18 +11,20 @@ namespace CS.Tools
     {
         public static bool SaveCharacetrSheet(CharacterSheet character, string path, string fileName)
         {
-            //
+            
             bool confirm = true;
             string output = JsonConvert.SerializeObject(character);
             Console.WriteLine(character.ShowCharSheet());
             Console.WriteLine(output);
-            FileSaver.CharSheetToFile(".", "test.json", output);
+            FileSaver.CharSheetToFile(".", fileName, output);
             return confirm;
         }
 
-        public static bool SaveCharacetrSheetTemplate(CharacterSheet character, string path)
+        public static bool SaveCharacetrSheetTemplate(CharacterSheet character, string path, string fileName)
         {
             bool confirm = true;
+            character.Clear();
+            confirm = SaveCharacetrSheet(character,path,fileName);
             return confirm;
         }
         

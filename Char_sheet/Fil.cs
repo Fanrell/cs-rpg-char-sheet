@@ -154,6 +154,10 @@ namespace Char_sheet
                     Console.WriteLine("save");
                     Saver.SaveCharacetrSheet(charSheet,"./", "test.char");
                     break;
+                    case("t"):
+                    Console.WriteLine("save template");
+                    Saver.SaveCharacetrSheetTemplate(charSheet,"./", "test.char");
+                    break;
                 case("l"):
                     Console.WriteLine("load");
                     break;
