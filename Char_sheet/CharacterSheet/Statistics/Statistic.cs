@@ -10,7 +10,7 @@ namespace CS.Stats
 		private string label;
 		private int[] stats;
 		/// <value>
-		/// <c>Label</c> forward vale to label
+		///  return label
 		/// </value>
 		public string Label
 		{
@@ -20,12 +20,18 @@ namespace CS.Stats
 					label = value;
 			}
 		}
-
+		/// <summary>
+		/// Propeties returns Stats table
+		/// </summary>
+		/// <value>Stats table</value>
 		public int[] Stats
         {
 			get => stats;
         }
-
+		/// <summary>
+		/// Propertise for return Length of stats table
+		/// </summary>
+		/// <value>Length of Stats Table</value>
 		public int Length
 		{
 			get => stats.Length;

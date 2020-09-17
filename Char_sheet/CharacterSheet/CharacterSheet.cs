@@ -95,7 +95,9 @@ namespace CS
         {
             Abilities.Add(ability);
         }
-
+        /// <summary>
+        /// Method for change int values to zeros in primary and secoundary statistics.
+        /// </summary>
         public void Clear()
         {
             ClearStat.SetZeros(ref primaryStats);
