@@ -134,7 +134,7 @@ namespace Char_sheet
             return confirm;
         }
 
-        public void Filler(CharacterSheet charSheet, string flag)
+        public void Filler(ref CharacterSheet charSheet, string flag)
         {
             switch(flag.ToLower())
             {
@@ -160,6 +160,8 @@ namespace Char_sheet
                     break;
                 case("l"):
                     Console.WriteLine("load");
+                    Console.WriteLine("Load File");
+                    Loader.LoadCharacterSheet(ref charSheet,"./", "test.char");
                     break;
             }
         }

@@ -24,7 +24,7 @@ namespace Char_sheet
                 flag = Console.ReadLine();
                 if (flag == "e")
                     break;
-                t.Filler(tmpCharSheet, flag);
+                t.Filler(ref tmpCharSheet, flag);
             } while (true);
             Console.WriteLine(tmpCharSheet.ShowCharSheet());
         }
