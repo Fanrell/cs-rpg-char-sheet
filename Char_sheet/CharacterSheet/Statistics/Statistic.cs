@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CS.Stats
 {
@@ -8,7 +9,8 @@ namespace CS.Stats
 	public class Statistic : IStatistics
 	{
 		private string label;
-		private int[] stats;
+		// private int[] stats;
+		private List<int> stats = new List<int>();
 		/// <value>
 		///  return label
 		/// </value>
@@ -24,7 +26,7 @@ namespace CS.Stats
 		/// Propeties returns Stats table
 		/// </summary>
 		/// <value>Stats table</value>
-		public int[] Stats
+		public List<int> Stats
         {
 			get => stats;
         }
@@ -34,15 +36,14 @@ namespace CS.Stats
 		/// <value>Length of Stats Table</value>
 		public int Length
 		{
-			get => stats.Length;
+			get => stats.Count;
 		}
 		/// <summary>
 		/// Constructor for Statistic class.
 		/// </summary>
 		/// <param name="fields">amount of stats</param>
-		public Statistic(int fields)
+		public Statistic()
 		{
-			stats = new int[fields];
 		}
 		/// <summary>
 		/// <c>BuildLabel</c> is method in Statistic class. Test and forward to <c>Label</c>propertis.
@@ -65,8 +66,9 @@ namespace CS.Stats
 		/// <returns>bool value represents correct of param</returns>
 		public bool BuildStat(int[] stats)
         {
-			this.stats = stats;
-			return this.stats == stats;
+			foreach (int x in stats)
+				this.stats.Add(x);
+			return Length == stats.Length;
         }
 
 	}

@@ -36,7 +36,7 @@ namespace Char_sheet
                     Console.WriteLine("Pleas give correct data // value");
                 }
             } while (error);
-            stats = new Statistic(statsFields);
+            stats = new Statistic();
             stats.BuildLabel(statsLabel);
             stat = new int[statsFields];
             for (int i = 0; i < statsFields; i++)
