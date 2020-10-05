@@ -42,9 +42,10 @@ namespace Char_sheet
             for (int i = 0; i < statsFields; i++)
             {
                 
-                bool exceExsist = false;
+                bool exceExsist;
                 do
                 {
+                    exceExsist = false;
                     Console.WriteLine("Please give value for {0} field of statistic", i + 1);
                     try
                     {
