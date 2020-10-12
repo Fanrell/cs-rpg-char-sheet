@@ -17,10 +17,16 @@ namespace CS.Tools
         /// <returns>Bool value of succeed action</returns>
         public static bool LoadCharacterSheet(ref CharacterSheet character, string path, string fileName)
         {
-            bool confirm = true;
-            string input = FileLoader.CharSheetFromFile(path, fileName);
+            bool confirm = false;
+            string input = "";
+            string[] splitedFileName = fileName.Split('.');
+            if (splitedFileName[splitedFileName.Length-1] == "char")
+            {
+                input = FileLoader.CharSheetFromFile(path, fileName);
+                character = JsonConvert.DeserializeObject<CharacterSheet>(input);
+                confirm = true;
+            }
             Console.WriteLine(input);
-            character = JsonConvert.DeserializeObject<CharacterSheet>(input);
             return confirm;
         }
     }
