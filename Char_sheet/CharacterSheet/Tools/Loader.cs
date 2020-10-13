@@ -22,9 +22,15 @@ namespace CS.Tools
             string[] splitedFileName = fileName.Split('.');
             if (splitedFileName[splitedFileName.Length-1] == "char")
             {
+                splitedFileName = null;
+                GC.Collect();
                 input = FileLoader.CharSheetFromFile(path, fileName);
                 character = JsonConvert.DeserializeObject<CharacterSheet>(input);
                 confirm = true;
+            }
+            else
+            {
+                // dodaæ wyj¹tek 
             }
             Console.WriteLine(input);
             return confirm;

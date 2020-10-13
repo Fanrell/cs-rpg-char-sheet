@@ -18,12 +18,15 @@ namespace CS.Tools
         /// <returns>Bool value information about sucesse of operation</returns>
         public static bool SaveCharacetrSheet(CharacterSheet character, string path, string fileName)
         {
-            
-            bool confirm = true;
-            string output = JsonConvert.SerializeObject(character);
-            Console.WriteLine(character.ShowCharSheet());
-            Console.WriteLine(output);
-            FileSaver.CharSheetToFile(".", fileName, output);
+            bool confirm = false;
+            if (!character.isEmpty)
+            {
+                confirm = true;
+                string output = JsonConvert.SerializeObject(character);
+                Console.WriteLine(character.ShowCharSheet());
+                Console.WriteLine(output);
+                FileSaver.CharSheetToFile(".", fileName, output);
+            }
             return confirm;
         }
         /// <summary>
@@ -35,9 +38,12 @@ namespace CS.Tools
         /// <returns>Bool value information about sucesse of operation</returns>
         public static bool SaveCharacetrSheetTemplate(CharacterSheet character, string path, string fileName)
         {
-            bool confirm = true;
-            character.Clear();
-            confirm = SaveCharacetrSheet(character,path,fileName);
+            bool confirm = false;
+            if (!character.isEmpty)
+            {
+                character.Clear();
+                confirm = SaveCharacetrSheet(character, path, fileName);
+            }
             return confirm;
         }
         

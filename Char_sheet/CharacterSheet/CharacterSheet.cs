@@ -50,6 +50,19 @@ namespace CS
                 abilities = value;
             }
         }
+
+        public bool isEmpty
+        {
+            get
+            {
+                bool isEmpty = true;
+                isEmpty &= primaryStats.Count == 0;
+                isEmpty &= secoundStats.Count == 0;
+                isEmpty &= skills.Count == 0;
+                isEmpty &= abilities.Count == 0;
+                return isEmpty;
+            }
+        }
         /// <summary>
         /// Method which forward stat to appropriate List depends on the flag
         /// </summary>
