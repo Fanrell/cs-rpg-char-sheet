@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+using System.Text;
 namespace CS.Tools
 {
     /// <summary>
@@ -14,11 +16,12 @@ namespace CS.Tools
         /// <returns>String value with converted json's data</returns>
         public static string CharSheetFromFile(string path, string fileName)
         {
-            string charSheetJson = "";
+            string charSheetJson;
             using (StreamReader inputFile = new StreamReader(Path.Combine(path, fileName)))
             {
                 charSheetJson = inputFile.ReadToEnd();
             }
+            charSheetJson = Encoding.UTF8.GetString(Convert.FromBase64String(charSheetJson));
             return charSheetJson;
         }
     }

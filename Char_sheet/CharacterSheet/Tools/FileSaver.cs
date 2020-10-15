@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text;
 namespace CS.Tools
 {
     /// <summary>
@@ -14,11 +15,11 @@ namespace CS.Tools
         /// <param name="fileName">file name</param>
         /// <param name="charSheetJson">string with data about character sheet</param>
         /// <returns>Bool value of succeed action</returns>
-        public static bool CharSheetToFile(string path,string fileName ,string charSheetJson)
+        public static bool CharSheetToFile(string path, string fileName, string charSheetJson)
         {
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(path, fileName)))
             {
-                outputFile.Write(charSheetJson);
+                outputFile.Write(Convert.ToBase64String(Encoding.UTF8.GetBytes(charSheetJson)));
             }
             bool confirm = true;
             return confirm;
